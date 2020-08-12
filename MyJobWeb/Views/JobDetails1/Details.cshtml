@@ -1,0 +1,66 @@
+﻿@model MyJobWeb.Data.JobDetail
+
+@{
+    ViewBag.Title = "Details";
+    <link href="~/Content/StyleSheet1.css" rel="stylesheet" />
+}
+
+
+
+<div>
+    <h2 style="font-size:20px;">@Model.Job_title Details</h2>
+    <hr />
+    <dl class="dl-horizontal">
+        <dd>
+            <img class="card-img" style="width:100px;font-size:20px; height:100px; padding:2px 2px;" src="~/Uploads/@Model.Image_Id" alt="">
+
+          
+        </dd>
+        
+
+        <dd>
+            @Html.DisplayFor(model => model.Job_title,new { @style= "font-size:20px; color:darkmagenta;"})
+        </dd>
+
+        <dt>
+           Job Description
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Job_desc)
+        </dd>
+
+       
+
+        
+
+        <dt>
+           Apply Date
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Creation_Date)
+        </dd>
+
+        <dt>
+            Email
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AspNetUser.Email)
+        </dd>
+
+        <dt>
+          Job Type
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Category.Name)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

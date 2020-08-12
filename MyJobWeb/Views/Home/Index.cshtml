@@ -1,0 +1,82 @@
+﻿@model IEnumerable<MyJobWeb.Models.JobdetailsModel>
+
+
+
+@{
+    ViewBag.Title = "Courses";
+    <link href="~/Content/StyleSheet1.css" rel="stylesheet" />
+}
+
+
+
+<!-- Page Features -->
+<div class="row text-center">
+
+   
+
+
+    @foreach (var courseitem in Model)
+    {
+        <div class="col-lg-3 col-md-6 mb-4">
+            <div class="card h-100">
+                <img class="card-img" style="width:300px;font-size:20px; height:300px; padding:2px 2px;" src="~/Uploads/@courseitem.Image_ID" alt="">
+                <div class="card-body">
+                    <h4 class="card-title" style="font-size:20px; color:darkmagenta;">@courseitem.Job_title</h4>
+                    <p class="card-text" style="font-size:20px;color:darkorchid;">@courseitem.Job_desc
+                </div>
+                <div class="card-footer">
+                  
+                     <a href="@Url.Action("Details","Home",new { id=@courseitem.Job_Id})" class="btn btn-primary" style="font-size:20px;">Find Out More!</a>
+                </div>
+            </div>
+        </div>
+    }
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+    @*
+            @{
+            ViewBag.Title = "Home Page";
+        }
+        <link href="~/Content/StyleSheet1.css" rel="stylesheet" />
+        <div class="jumbotron alert alert-info">
+            <h2>مرحبا بك عزيزي الزائر</h2>
+            <p class="lead">
+                نحن هنا لمساعدتكم في البحث عن وظائف باختلاف انواعها ويمكنك
+                الاعلان عن وظائف او التقدم لوظائف حسب مؤهلاتك وحسب ما تريده
+            </p>
+            <p><a href="http://asp.net" class="btn btn-primary btn-lg"> المزيد من التفاصيل &raquo;</a></p>
+        </div>
+
+        @foreach (var item in Model)
+        {<div class="panel panel-info" style="padding:15px; margin:15px;">
+                <div class="panel-heading"><h1>@Html.DisplayFor(modelitem => item.Name)</h1></div>
+
+
+                <div class="row panel-body">
+                    <h5>@Html.DisplayFor(modelitem => item.Cate)</h5>
+                    @foreach (var subitem in item.Jobs)
+                    {
+                        <div class="col-md-3 thumbnail" style="margin-left:20px; margin-bottom:30px; min-height:340px;">
+                            <img src="~/Uploads/@subitem.Image_ID" />
+                            <h3>@Html.DisplayFor(modelItem => subitem.Job_title)</h3>
+                            <h5>@Html.Raw(HttpUtility.HtmlDecode(Html.DisplayFor(modelItem => subitem.Job_desc).ToString()))</h5>
+                            @Html.ActionLink("التفاصيل", "Details", new { JobId = subitem.Job_Id }, new { @class = "btn btn-primary" })
+
+                        </div>
+                    }
+                </div>
+            </div>
+        }*@

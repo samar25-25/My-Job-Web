@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="68bbe303f58543638879ccc1ed3e2acc" Name="Diagram1">
+        <EntityTypeShape EntityType="MyJobWebModel.C__MigrationHistory" Width="1.5" PointX="7.75" PointY="9.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="MyJobWebModel.AspNetRole" Width="1.5" PointX="0.75" PointY="6" IsExpanded="true" />
+        <EntityTypeShape EntityType="MyJobWebModel.AspNetUserClaim" Width="1.5" PointX="5.25" PointY="4.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="MyJobWebModel.AspNetUserLogin" Width="1.5" PointX="5.25" PointY="7.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="MyJobWebModel.AspNetUser" Width="1.5" PointX="3" PointY="4.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="MyJobWebModel.Category" Width="1.5" PointX="6" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MyJobWebModel.RoleViewModel" Width="1.5" PointX="0.75" PointY="2.375" IsExpanded="true" />
+        <AssociationConnector Association="MyJobWebModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" ManuallyRouted="false" />
+        <AssociationConnector Association="MyJobWebModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" ManuallyRouted="false" />
+        <AssociationConnector Association="MyJobWebModel.FK_Categories_Categories" ManuallyRouted="false" />
+        <AssociationConnector Association="MyJobWebModel.AspNetUserRoles" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="MyJobWebModel.JobDetail" Width="1.5" PointX="8.25" PointY="3.5" />
+        <AssociationConnector Association="MyJobWebModel.FK_JobDetails_AspNetUsers" />
+        <AssociationConnector Association="MyJobWebModel.FK_JobDetails_Categories" />
+        <EntityTypeShape EntityType="MyJobWebModel.ApplyForJob" Width="1.5" PointX="10.5" PointY="5" />
+        <AssociationConnector Association="MyJobWebModel.FK_ApplyForJobs_AspNetUsers" />
+        <AssociationConnector Association="MyJobWebModel.FK_ApplyForJobs_JobDetails" />
+        </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

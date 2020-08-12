@@ -1,0 +1,80 @@
+﻿@model MyJobWeb.Models.ApplyforJobsModel
+
+
+@{
+    ViewBag.Title = "Apply";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    <link href="~/Content/StyleSheet1.css" rel="stylesheet" />
+}
+
+
+
+@using (Html.BeginForm("Apply", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal " style="font-size:15px;">
+        <div class="container">
+            <div class="center">
+
+
+                <br />
+                <h4 style="font-size:20px;">Apply For This Job</h4>
+                @{
+                    if (ViewBag.Result != null)
+                    {
+                        <h3>
+                            @ViewBag.Result
+                        </h3>
+                    }
+                }
+
+                <hr />
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <div class="form-group ">
+                    @Html.Label("Message", htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.TextArea("Message", new { htmlAttributes = new { @class = "form-control", @style = "overflow:auto;outline:auto; color:aquamarine;outline-color:cadetblue; " } })
+                        @Html.ValidationMessage("Message", "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.FileId, "Upload CV:", htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        <input type="file" name="Upload" class="inputfile" id="file" />
+                        <label id="inputlabel" for="file">
+
+                            Click Here
+                            <i class="material-icons">
+                                assignment_return &nbsp;
+                            </i>
+
+                        </label>
+                        @Html.ValidationMessageFor(model => model.FileId, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" value="Save" class="btn btn-primary" style="font-size:20px; width:100px; height:40px;" />
+                      
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <br />
+                        <br />
+                        <br />
+                        @Html.ActionLink("Back to List", "GetJobByUser", "Home", new { @style = "font-size:15px;" })
+                    </div>
+                </div>
+            </div>
+
+
+
+                </div>
+            </div>
+
+                    }

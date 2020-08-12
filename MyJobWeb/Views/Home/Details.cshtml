@@ -1,0 +1,70 @@
+﻿@model MyJobWeb.Data.JobDetail
+
+@{
+    ViewBag.Title = "Details";
+    <link href="~/Content/StyleSheet1.css" rel="stylesheet" />
+}
+
+
+
+<div class="container">
+    <h2 style="font-size:20px;">Details Of @Html.DisplayFor(model => model.Job_title) Job Offer</h2>
+</div>
+
+<hr />
+<div class="container">
+    <div class="center">
+        <dl>
+
+            <dd>
+                <img class="card-img" style="width:300px; height:300px; padding:2px 2px;" src="~/Uploads/@Model.Image_Id" alt="">
+
+
+
+            <dt>
+                Job Requirements:
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Job_desc)
+            </dd>
+
+
+
+
+
+            <dt>
+                Job Offer Date:
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Creation_Date)
+            </dd>
+
+            <dt>
+                Puplisher/Company Email:
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.AspNetUser.Email)
+            </dd>
+
+            <dt>
+                Job Type
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Category.Name)
+            </dd>
+
+        </dl>
+        <p>
+            @Html.ActionLink("Apply Now", "Apply", new { id = Model.Id }, new { @class = "btn btn-success", @style = "font-size:20px;" })
+            @*@Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |*@
+            <br />
+            <br />
+            <br />
+            @Html.ActionLink("Back to List", "Index",new { @style = "font-size:20px;" })
+        </p>
+    </div>
+</div>

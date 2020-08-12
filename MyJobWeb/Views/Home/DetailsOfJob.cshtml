@@ -1,0 +1,44 @@
+﻿@model MyJobWeb.Data.ApplyForJob
+
+@{
+    ViewBag.Title = "DetailsOfJob";
+    <link href="~/Content/StyleSheet1.css" rel="stylesheet" />
+}
+
+<h2>Details Of Job</h2>
+<div>
+    
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+           Job Title
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.JobDetail.Job_title,new { @style="font-size:20px;"})
+        </dd>
+
+
+        <dt>
+            Message
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Message, new { @style = "font-size:20px;" })
+        </dd>
+
+        <dt>
+            Seeker Apply Date
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ApplyDate, new { @style = "font-size:20px;" })
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit Job", "Edit1","Home", new { id = Model.Id },new {  @style = "font-size:20px;" }) |
+    @Html.ActionLink("Back to Jobs ", "Index", new { @style = "font-size:20px;" })
+</p>
+

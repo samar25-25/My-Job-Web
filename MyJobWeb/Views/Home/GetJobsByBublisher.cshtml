@@ -1,0 +1,74 @@
+﻿@model IEnumerable<MyJobWeb.Models.JobsViewModel>
+
+@{
+    ViewBag.Title = "GetJobsByBublisher";
+    <link href="~/Content/StyleSheet1.css" rel="stylesheet" />
+}
+<br />
+<body>
+    <div class="container" >
+        <div class="center">
+
+    
+
+    @foreach (var gr in Model)
+    {
+        <h3 style="font-size:25px;">@gr.job_title </h3>
+        <table class="table table-bordered table-hover ">
+            <tr>
+                <th>
+               Seeker Email
+                </th>
+                <th>
+                    Message 
+                </th>
+                <th>
+                    Apply Date
+                </th>
+                <th>
+                    Seeker CV
+                </th>
+            </tr>
+            @foreach (var item in gr.items)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.AspNetUser.Email)
+                    
+                    </td>
+                    <td>
+                        @item.Message
+                    </td>
+                    <td>
+                        @item.ApplyDate
+                    </td>
+                    <td>
+
+                        @if (item.File_Id != null)
+                        {
+                            @item.File_Id
+
+
+                            
+                            <a class="btn btn-xs btn-default" title="download" href="@Url.Action("Download", "Home", new { area = "", path = item.File_Id })"><span class="glyphiconglyphicon-download btn btn-outline-dark">Download</span></a>
+                        }
+                        else {
+                            <div>
+                                There Is No File To Download
+                            </div>
+                        }
+
+                      
+                        @*@item.File_Id*@
+                    </td>
+                </tr>
+            }
+        </table>
+
+    }
+</div>
+        </div>
+</body>
+
+    
+    

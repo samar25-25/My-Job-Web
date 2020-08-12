@@ -1,0 +1,77 @@
+﻿h2{
+    color:darkmagenta;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
+}
+div{
+    color:darkviolet;
+}
+h3.text{
+    color:darkblue;
+}
+textarea {
+  overflow: auto;
+  outline:auto;
+  
+  outline-color:cadetblue;
+}
+.inputstyle{
+    width:500px ;
+    height:500px;
+}
+input[type="file"]{
+    display:none;
+}
+label .inputlabel{
+    color:blueviolet;
+    height:60px;
+    width:100px;
+    background-color:darkslateblue;
+    position:absolute;
+    margin:auto;
+    font-size:20px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+     cursor:pointer;
+    font-family:"montserrat";
+      
+}
+label .inputimage{
+    cursor:pointer;
+    color:brown;
+    
+    height:60px;
+    width:100px;
+    background-color:darkslateblue;
+    position:absolute;
+    margin:auto;
+    font-size:20px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:20px;
+    font-family:"montserrat";
+      
+}
+
+div dt{
+    font-size:20px;
+    color:darkmagenta;
+}
+dd{
+    font-size:15px;
+}
+table tr th{
+    font-size:18px;
+}
+tr td{
+    font-size:14px;
+}
+.container {
+  display: flex;
+  justify-content: center;
+}
+.center {
+  width:800px;
+}
+

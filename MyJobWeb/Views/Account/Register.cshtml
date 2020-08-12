@@ -1,0 +1,152 @@
+﻿
+@model MyJobWeb.Models.RegisterViewModel
+
+
+
+@{
+    ViewBag.Title = "Register";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>SB Admin 2 - Login</title>
+    <!-- Custom fonts for this template-->
+    <link href="~/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+    <!-- Custom styles for this template-->
+    <link href="~/css/sb-admin-2.min.css" rel="stylesheet">
+</head>
+
+@ViewBag.User
+<body class="bg-gradient-primary" style="background-image:url('../../img/bg-masthead.jpg');
+
+padding-left:0px;margin-left:0px; margin-right:0px;
+padding-right:0px;">
+
+    @using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+    {  @Html.AntiForgeryToken()
+        <div>
+            @*<img src="~/img/portfolio/thumbnails/5.jpg" style="padding-top:0; width:1000px; height:640px;" />*@
+
+            <div class="container">
+                <!-- Outer Row -->
+
+                <div class="row justify-content-center">
+                    <div class="col-xl-7 col-lg-12 col-md-9">
+                        <div class="card o-hidden border-0 shadow-lg my-5">
+                            <div class="card-body p-0">
+                                <!-- Nested Row within Card Body -->
+                                <div class="justify-content-center row ">
+                                    <div class="col-lg-8">
+                                        <div class="p-3">
+                                            <div class="text-center">
+                                                <h1 class="h4 text-gray-900 mb-4" style="font-size:30px; font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;">Register Now</h1>
+                                            </div>
+
+                                            <div class="form-group">
+
+                                                @Html.LabelFor(model => model.FullName, new { @style = "font-size:20px;" })
+                                                @Html.TextBoxFor(model => model.FullName, new { @class = "form-control form-control-user", id = "exampleInputEmail",@style = "font-size:20px;" , placeholder = "Enter Your Name..." })
+                                                @Html.ValidationMessageFor(model => model.FullName, "", new { @class = "text-danger", @style = "font-size:20px;" })
+                                            </div>
+
+                                            <div class="form-group">
+
+                                                @Html.LabelFor(model => model.Email, new { @style = "font-size:20px;" })
+                                                @Html.TextBoxFor(model => model.Email, new { @class = "form-control form-control-user", @style = "font-size:20px;" ,id = "exampleInputEmail", placeholder = "Enter Email Address..." })
+                                                @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger", @style = "font-size:20px;" })
+                                            </div>
+                                            <div class="form-group">
+                                                @Html.LabelFor(model => model.Password, new { @style = "font-size:20px;" })
+                                                @Html.PasswordFor(model => model.Password, new { @class = "form-control form-control-user", id = "exampleInputPassword", @style = "font-size:20px;" ,placeholder = "Password" })
+                                                @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" , @style = "font-size:20px;" })
+                                            </div>
+
+                                            <div class="form-group">
+
+                                                @Html.LabelFor(model => model.ConfirmPassword, new { @style = "font-size:20px;" })
+                                                @Html.PasswordFor(model => model.ConfirmPassword, new { @class = "form-control form-control-user", id = "exampleInputEmail", @style = "font-size:20px;" , placeholder = "Enter Confirm Password.." })
+                                                @Html.ValidationMessageFor(model => model.ConfirmPassword, "", new { @class = "text-danger", @style = "font-size:20px;" })
+                                            </div>
+
+                                            <div class="form-group">
+                                                @Html.LabelFor(m => m.UserType,new { @style = "font-size:20px;" })
+                                                
+                                                    @Html.DropDownList("UserType", null, new { @class = "form-control form-control-user", @style = "font-size:20px;" })
+                                               
+                                            </div>
+
+                                            <div class="form-group">
+                                                <div class="custom-control custom-checkbox small">
+                                                    @*@Html.EditorFor(model => model.Remember_Me)
+                                                        @Html.LabelFor(model => model.Remember_Me)
+                                                        @Html.CheckBoxFor(model => model.Remember_Me, new { @class = "custom-control-input", id = "customCheck" })
+                                                        @Html.ValidationMessageFor(model => model.Remember_Me, "", new { @class = "text-danger" })*@
+                                                    @*<label class="custom-control-label" for="customCheck"></label>*@
+                                                </div>
+                                                <div class="btn btn-primary btn-user btn-block">
+                                                    <input type="submit" value="Register" class="btn btn-default" style="font-size:20px; color:azure;" />
+                                                </div>
+
+                                            </div>
+                                            <hr>
+                                            <a href="~/Account/Login" class="btn btn-google btn-user btn-block"  style="font-size:20px;" >
+                                                <i class="fab  fa-fw"></i> Already have account!
+                                            </a>
+                                           
+
+                                            @*<a href="~/Account/_ExternalLoginsListPartial" class="btn btn-facebook btn-user btn-block" style="font-size:20px;" >
+                                                <i class="fab fa-facebook-f fa-fw"></i> Register with Facebook
+                                            </a>*@
+                                            <hr>
+                                            @*<div class="text-center">
+                                                @Html.ActionLink("Forgot Password?", "ForgetPassword", "Account",new { @class="small", @style = "font-size:20px;" })
+                                                <a class="small" href="forgot-password.html"  style="font-size:20px;" >Forgot Password?</a>
+                                            </div>*@
+                                            @*<div class="text-center">
+                                                @Html.ActionLink("Login", "Login", "Account",new { @style = "font-size:20px;" })
+                                                <a class="small" href="register.html">Create an Account!</a>
+                                            </div>*@
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    }
+
+
+
+
+
+
+
+    <!-- Bootstrap core JavaScript-->
+    <script src="~/vendor/jquery/jquery.min.js"></script>
+    <script src="~/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- Core plugin JavaScript-->
+    <script src="~/vendor/jquery-easing/jquery.easing.min.js"></script>
+    <!-- Custom scripts for all pages-->
+    <script src="~/js/sb-admin-2.min.js"></script>
+    @section Scripts{
+        <script src="~/Scripts/jquery.validate.min.js"></script>
+        <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+    }
+</body>
+
+
+
+
+
+
+
+

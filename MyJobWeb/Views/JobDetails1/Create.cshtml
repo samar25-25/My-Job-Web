@@ -1,0 +1,83 @@
+﻿@model MyJobWeb.Data.JobDetail
+
+@{
+    ViewBag.Title = "Create";
+    <link href="~/Content/StyleSheet1.css" rel="stylesheet" />
+
+<link href = "~/Content/bootstrap.min.css" rel = "stylesheet" />
+
+}
+
+<h2>Create A Job Now</h2>
+
+@using (Html.BeginForm("Create", "JobDetails1", FormMethod.Post, new { enctype = "multipart/form-data" })) 
+{
+                @Html.AntiForgeryToken()
+
+                <div class="form-horizontal">
+       
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" ,@style="font-size:20px;"})
+        <div class="form-group">
+            
+            @Html.LabelFor(model => model.Job_title," Enter Job Name:", htmlAttributes: new { @class = "control-label col-md-2", @style = "font-size:20px;" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Job_title, new { htmlAttributes = new { @class = "form-control", @style = "font-size:20px;" } })
+                @Html.ValidationMessageFor(model => model.Job_title, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Job_desc,"Job Description", htmlAttributes: new { @class = "control-label col-md-2", @style = "font-size:20px;" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Job_desc, new { htmlAttributes = new { @class = "form-control", @style = "font-size:20px;" } })
+                @Html.ValidationMessageFor(model => model.Job_desc, "", new { @class = "text-danger", @style = "font-size:20px;" })
+            </div>
+        </div>
+
+      
+
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Image_Id,"Choose Job Image:", htmlAttributes: new { @class = "control-label col-md-2", @style = "font-size:20px;" })
+                        <div class="col-md-10">
+                            
+
+                            <input type="file" name="Upload" class="inputimage" id="file" data-buttontext="Find file"/>
+                            <label id="inputimage" for="file">
+
+                                Upload image
+                                <i class="material-icons" style="font-size:20px;">
+                                    add_photo_alternate &nbsp;
+                                </i>
+
+                            </label>
+                            @Html.ValidationMessageFor(model => model.Image_Id, "", new { @class = "text-danger", @style = "font-size:20px;" })
+                        </div>
+                    </div>
+
+
+    
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Cat_Id, "Job Type", htmlAttributes: new { @class = "control-label col-md-2", @style = "font-size:20px;" })
+            <div class="col-md-10">
+                @Html.DropDownList("Cat_Id", null, htmlAttributes: new { @class = "form-control", @style = "font-size:20px; color:darkviolet;" })
+                @Html.ValidationMessageFor(model => model.Cat_Id, "", new { @class = "text-danger", @style = "font-size:20px;" })
+            </div>
+        </div>
+
+                
+
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-outline-primary" style="font-size:20px;" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index",new { @style="font-size:15px;" })
+</div>

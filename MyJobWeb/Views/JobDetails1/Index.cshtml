@@ -1,0 +1,72 @@
+﻿@model IEnumerable<MyJobWeb.Data.JobDetail>
+
+@{
+    ViewBag.Title = "Index";
+    <link href="~/Content/StyleSheet1.css" rel="stylesheet" />
+}
+
+<h2 style="font-size:20px;">All Jobs Created</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create",new { @style ="font-size:17px;"})
+</p>
+<table class="table">
+    <tr>
+        <th>
+          
+        </th>
+        <th>
+         Job Title
+        </th>
+        <th>
+            Job Description
+        </th>
+        <th>
+           Creation Date
+        </th>
+        <th>
+           Email
+        </th>
+        <th>
+            Job Type
+        </th>
+        <th>
+
+        </th>
+       
+    </tr>
+
+    
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            <img class="card-img" style="width:100px;font-size:20px; height:100px; padding:2px 2px;" src="~/Uploads/@item.Image_Id" alt="">
+
+           
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Job_title)
+        </td>
+        <td>
+            
+            @Html.DisplayFor(modelItem => item.Job_desc)
+         </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Creation_Date)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AspNetUser.Email)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Category.Name)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+        </td>
+    </tr>
+}
+
+</table>
